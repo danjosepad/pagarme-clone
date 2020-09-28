@@ -51,22 +51,33 @@ export const LoginWrapper = styled.div`
   }
 `;
 
-export const AboutPagarMe = styled.div`
+export const FlexContent = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 
 export const TextInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: calc(100% - (395px + 10%));
 
   & > * + * {
     margin-top: 40px;
+  }
+
+  img {
+    width: calc(100% - (100% - (395px + 10%)));
+    height: 100%;
   }
 `;
 
 export const ImageContent = styled.div`
   position: relative;
+`;
+
+export const ParntersLogoContent = styled.div`
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
 `;
 

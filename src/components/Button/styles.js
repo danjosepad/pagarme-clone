@@ -6,6 +6,7 @@ export const StyledButton = styled.button.attrs({ type: 'button' })`
   justify-content: center;
   align-items: center;
   padding: 0px 40px;
+  max-width: 320px;
 
   font-family: "Lato", sans-serif;
   font-size: 14px;
