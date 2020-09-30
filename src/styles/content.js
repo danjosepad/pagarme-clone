@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { colors } from './theme';
+import points from '../images/points.svg';
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  max-width: 1366px;
   margin: 0px auto;
 `;
 
@@ -53,6 +54,13 @@ export const LoginWrapper = styled.div`
 
 export const FlexContent = styled.div`
   display: flex;
+  margin-top: 80px;
+  background: ${ ({ bgColor }) => bgColor ? bgColor : '#FFFFFF'};
+`;
+
+export const FlexImageContent = styled.div`
+  display: flex;
+  background: url(${({ url }) => url}) no-repeat center/100%;
 `;
 
 export const TextInfo = styled.div`
@@ -72,12 +80,54 @@ export const TextInfo = styled.div`
 
 export const ImageContent = styled.div`
   position: relative;
+  width: calc(100% - (100% - (395px + 10%)));
+
+
 `;
 
+export const PointsImage = styled.img`
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  z-index: 0;
+`;
+
+export const WavesImage = styled.img`
+  position: absolute;
+  left: 277px;
+  bottom: 7px;
+  z-index: 2;
+`;
+
+export const LargeWaves = styled.img`
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  z-index: 0;
+`;
+
+export const MacbookImage = styled.img`
+  position: relative;
+  z-index: 1;
+`;
+
+export const WomanImage = styled.img`
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+`;
 export const ParntersLogoContent = styled.div`
+  padding: 48px 0px;
   display: flex;
   width: 90%;
-  margin: 0 auto;
+  margin: 40px auto 0px;
   justify-content: space-between;
 `;
 
+export const Line = styled.hr`
+  width: 64px;
+  height: 3px;
+  background-color: ${colors.purple};
+  margin-bottom: 24px;
+`;
