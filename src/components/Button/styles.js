@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/theme';
 
 export const StyledButton = styled.button.attrs({ type: 'button' })`
   display: flex;
@@ -15,7 +14,7 @@ export const StyledButton = styled.button.attrs({ type: 'button' })`
   line-height: 18px;
   color: white;
 
-  background-color: ${colors.primary};
+  background-color: ${ ({ bgColor }) => bgColor };
   border: none;
   height: 2.7rem;
   min-width: 5rem;

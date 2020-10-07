@@ -34,19 +34,27 @@ import {
   MacbookImage,
   LargeWaves,
   WomanImage,
+  PaymentContent
 } from './styles/content';
 import { Span, H1, H6, P1 } from './styles/fonts';
 import Button from './components/Button';
-
+import { colors } from './styles/theme';
 // Styled components
 
 const StyledH1 = styled(H1)`
   width: 90%;
+
+  ${ ({ color }) => color && `
+  span {
+    color: ${color}
+  }
+  `}
 `;
 
 const StyledP1 = styled(P1)`
   width: 70%;
 `;
+
 
 const linearWhite = 'linear-gradient(rgb(243, 244, 245) 0%, rgb(255, 255, 255) 100%)';
 function App() {
@@ -97,23 +105,28 @@ function App() {
     </ParntersLogoContent>
     </Content>
     <FlexContent bgColor={linearWhite}>
-      <ImageContent>
-      <LargeWaves src={largewaves} alt="waves" />
-      <MacbookImage src={macbook} alt="macbook" />
-      </ImageContent>
+      <PaymentContent>
+        <ImageContent>
+        <LargeWaves src={largewaves} alt="waves" />
+        <MacbookImage src={macbook} alt="macbook" />
+        </ImageContent>
 
 
-      <TextInfo>
-      <Line />
-      <StyledH1>Receba pagamentos e gerencie as suas vendas em um só lugar.</StyledH1>
-      <StyledP1>
-      Aumente as suas vendas oferecendo, no seu site ou app, a melhor experiência para pagamentos por cartão de crédito e boleto bancário.
-      </StyledP1>
-      <StyledP1>
-      Fazemos toda a comunicação com as bandeiras, bancos e demais serviços no meio do caminho e você ainda acompanha todas as suas vendas na nossa dashboard.
-      </StyledP1>
-      <Button text="Aumente suas vendas" />
-      </TextInfo>
+        <TextInfo>
+
+        <StyledH1 color={colors.purple}>
+          <Line />
+          Receba pagamentos e gerencie as suas vendas <span>em um só lugar.</span>
+        </StyledH1>
+        <StyledP1>
+        Aumente as suas vendas oferecendo, no seu site ou app, a melhor experiência para pagamentos por cartão de crédito e boleto bancário.
+        </StyledP1>
+        <StyledP1>
+        Fazemos toda a comunicação com as bandeiras, bancos e demais serviços no meio do caminho e você ainda acompanha todas as suas vendas na nossa dashboard.
+        </StyledP1>
+        <Button text="Aumente suas vendas" bgColor={colors.purple} />
+        </TextInfo>
+      </PaymentContent>
     </FlexContent>
 
    <FlexImageContent url={manComputer}>

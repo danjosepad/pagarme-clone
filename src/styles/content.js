@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { colors } from './theme';
-import points from '../images/points.svg';
 
 export const Content = styled.div`
   display: flex;
@@ -56,7 +55,8 @@ export const FlexContent = styled.div`
   display: flex;
   margin-top: 80px;
   background: ${ ({ bgColor }) => bgColor ? bgColor : '#FFFFFF'};
-`;
+
+  `;
 
 export const FlexImageContent = styled.div`
   display: flex;
@@ -76,13 +76,19 @@ export const TextInfo = styled.div`
     width: calc(100% - (100% - (395px + 10%)));
     height: 100%;
   }
+
+  &:nth-child(1) {
+    width: calc(100% - (600px + 10%));
+  }
 `;
 
 export const ImageContent = styled.div`
   position: relative;
   width: calc(100% - (100% - (395px + 10%)));
 
-
+  &:nth-child(1) {
+    width: 60%;
+  }
 `;
 
 export const PointsImage = styled.img`
@@ -101,14 +107,17 @@ export const WavesImage = styled.img`
 
 export const LargeWaves = styled.img`
   position: absolute;
-  top: 150px;
-  width: 100%;
-  z-index: 0;
+  top: 39%;
+  right: 82%;
+  transform: translateX(50%);
 `;
 
 export const MacbookImage = styled.img`
   position: relative;
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
 `;
 
 export const WomanImage = styled.img`
@@ -128,6 +137,14 @@ export const ParntersLogoContent = styled.div`
 export const Line = styled.hr`
   width: 64px;
   height: 3px;
+  margin: 0px;
   background-color: ${colors.purple};
   margin-bottom: 24px;
+`;
+
+export const PaymentContent = styled.div`
+display: flex;
+  max-width: 1366px;
+  padding: 125px 0px 3em;
+  margin: 0px auto;
 `;
