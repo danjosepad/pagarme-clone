@@ -61,6 +61,7 @@ export const FlexContent = styled.div`
 export const FlexImageContent = styled.div`
   display: flex;
   background: url(${({ url }) => url}) no-repeat center/100%;
+  padding: 68px;
 `;
 
 export const TextInfo = styled.div`
@@ -138,13 +139,24 @@ export const Line = styled.hr`
   width: 64px;
   height: 3px;
   margin: 0px;
-  background-color: ${colors.purple};
+  background-color: ${ ({ color }) => color ? color : colors.purple};
   margin-bottom: 24px;
 `;
 
 export const PaymentContent = styled.div`
-display: flex;
+  display: flex;
   max-width: 1366px;
   padding: 125px 0px 3em;
   margin: 0px auto;
+`;
+
+export const PartnersContent = styled.div`
+  display: flex;
+  background-color: ${colors.blackDarker};
+  padding: 48px 0px;
+`;
+
+export const FlexRowContent = styled.div`
+  flex: 1;
+  max-width: 1366px;
 `;

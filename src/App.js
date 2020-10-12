@@ -34,15 +34,22 @@ import {
   MacbookImage,
   LargeWaves,
   WomanImage,
-  PaymentContent
+  PaymentContent,
+  PartnersContent,
+  FlexRowContent
 } from './styles/content';
 import { Span, H1, H6, P1 } from './styles/fonts';
 import Button from './components/Button';
 import { colors } from './styles/theme';
+
+import './global.css';
 // Styled components
 
 const StyledH1 = styled(H1)`
   width: 90%;
+  ${ ({ baseColor }) => baseColor && `
+    color: ${baseColor}
+  `}
 
   ${ ({ color }) => color && `
   span {
@@ -53,6 +60,7 @@ const StyledH1 = styled(H1)`
 
 const StyledP1 = styled(P1)`
   width: 70%;
+  color: ${ ({ color }) => color ? color : colors.blueDark};
 `;
 
 
@@ -83,9 +91,11 @@ function App() {
 
     <FlexContent>
       <TextInfo>
-      <StyledH1>O melhor meio de pagamento para você vender online</StyledH1>
-      <StyledP1>No Pagar.me, você começa a vender na internet com alta conversão e a segurança que você precisa para crescer o seu negócio.</StyledP1>
-      <Button text="Aumente suas vendas" />
+        <StyledH1>O melhor meio de pagamento para você vender online</StyledH1>
+        <StyledP1>
+          No Pagar.me, você começa a vender na internet com alta conversão e a segurança que você precisa para crescer o seu negócio.
+        </StyledP1>
+        <Button text="Aumente suas vendas" />
       </TextInfo>
 
     <ImageContent>
@@ -119,10 +129,10 @@ function App() {
           Receba pagamentos e gerencie as suas vendas <span>em um só lugar.</span>
         </StyledH1>
         <StyledP1>
-        Aumente as suas vendas oferecendo, no seu site ou app, a melhor experiência para pagamentos por cartão de crédito e boleto bancário.
+          Aumente as suas vendas oferecendo, no seu site ou app, a melhor experiência para pagamentos por cartão de crédito e boleto bancário.
         </StyledP1>
         <StyledP1>
-        Fazemos toda a comunicação com as bandeiras, bancos e demais serviços no meio do caminho e você ainda acompanha todas as suas vendas na nossa dashboard.
+          Fazemos toda a comunicação com as bandeiras, bancos e demais serviços no meio do caminho e você ainda acompanha todas as suas vendas na nossa dashboard.
         </StyledP1>
         <Button text="Aumente suas vendas" bgColor={colors.purple} />
         </TextInfo>
@@ -130,15 +140,24 @@ function App() {
     </FlexContent>
 
    <FlexImageContent url={manComputer}>
-    <TextInfo>
-      <StyledH1>Para quem já vende online ou quer começar</StyledH1>
-      <StyledP1>
-      Nosso checkout transparente é compatível com as principais plataformas de e-commerce, assim você tem mais facilidade na hora de habilitar o recebimento no seu site ou app sem precisar de conhecimento técnico.
-      </StyledP1>
-      <Button text="Confira nossos parceiros" />
-    </TextInfo>
+     <Content>
+      <TextInfo>
+        <StyledH1 baseColor={colors.white}>
+          <Line color={colors.primary} />
+          Para quem já vende online ou quer começar
+          </StyledH1>
+        <StyledP1 color={colors.white}>
+          Nosso checkout transparente é compatível com as principais plataformas de e-commerce, assim você tem mais facilidade na hora de habilitar o recebimento no seu site ou app sem precisar de conhecimento técnico.
+        </StyledP1>
+        <Button text="Confira nossos parceiros" />
+      </TextInfo>
+     </Content>
   </FlexImageContent>
-
+  <PartnersContent>
+    <FlexRowContent>
+      Test
+    </FlexRowContent>
+  </PartnersContent>
  </>
   );
 }
