@@ -159,4 +159,7 @@ export const PartnersContent = styled.div`
 export const FlexRowContent = styled.div`
   flex: 1;
   max-width: 1366px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 `;

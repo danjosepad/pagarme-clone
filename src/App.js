@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import * as R from 'ramda';
 
 // Project imports
 
@@ -17,6 +18,22 @@ import james from './images/jameslogo.svg';
 import wedy from './images/wedylogo.svg';
 import grupoysa from './images/grupoysalogo.svg';
 import manComputer from './images/bg-man-computer.png';
+
+// Partners logo
+
+import vtexlogo from './images/vtexlogo.png';
+import opencartlogo from './images/opencartlogo.png';
+import irrobalogo from './images/irrobalogo.png';
+import vndalogo from './images/vndalogo.png';
+import edoolslogo from './images/edoolslogo.png';
+import dlojavirtuallogo from './images/dlojavirtuallogo.png';
+import bis2bislogo from './images/bis2bislogo.png';
+import betalabslogo from './images/betalabslogo.png';
+import lojaintegradalogo from './images/lojaintegradalogo.png';
+import woocommercelogo from './images/woocommercelogo.png';
+import prestashoplogo from './images/prestashoplogo.png';
+import magentologo from './images/magentologo.png';
+
 import {
   Content,
   TopHeader,
@@ -65,7 +82,89 @@ const StyledP1 = styled(P1)`
 
 
 const linearWhite = 'linear-gradient(rgb(243, 244, 245) 0%, rgb(255, 255, 255) 100%)';
+
+
+
 function App() {
+  const definedPartners = [
+    {
+      src: vtexlogo,
+      alt: 'vtex logo',
+    },
+    {
+      src: opencartlogo,
+      alt: 'opencart logo',
+    },
+    {
+      src: irrobalogo,
+      alt: 'irroba logo',
+    },
+    {
+      src: vndalogo,
+      alt: 'vnda logo',
+    },
+    {
+      src: edoolslogo,
+      alt: 'opencart logo',
+    },
+    {
+      src: dlojavirtuallogo,
+      alt: 'dlojavirtual logo',
+    },
+    {
+      src: bis2bislogo,
+      alt: 'bis2bis logo',
+    },
+    {
+      src: betalabslogo,
+      alt: 'betalabs logo',
+    },
+    {
+      src: lojaintegradalogo,
+      alt: 'lojaintegrada logo',
+    },
+    {
+      src: woocommercelogo,
+      alt: 'woocommerce logo',
+    },
+    {
+      src: prestashoplogo,
+      alt: 'prestashop logo'
+    },
+    {
+      src: magentologo,
+      alt: 'magento logo',
+    },
+  ];
+
+  const [partnersLoop, setPartnersLoop] = useState(1);
+  const [partners, setPartners] = useState(R.take(4, definedPartners));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      switch(partnersLoop) {
+        case 1:
+          setPartners(R.take(4, definedPartners))
+          break;
+        case 2:
+          setPartners(definedPartners.slice(4,8))
+          break;
+        case 3:
+          setPartners(R.takeLast(4, definedPartners))
+          break;
+      }
+      if (partnersLoop < 3) {
+        setPartnersLoop(partner => partner + 1)
+      }
+
+      if (partnersLoop === 3) {
+        setPartnersLoop(1);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval)
+  }, [partnersLoop])
+
   return (
     <>
    <Content>
@@ -155,7 +254,9 @@ function App() {
   </FlexImageContent>
   <PartnersContent>
     <FlexRowContent>
-      Test
+      {partners.map(partner => (
+        <img src={partner.src} alt={partner.alt} />
+      ))}
     </FlexRowContent>
   </PartnersContent>
  </>
